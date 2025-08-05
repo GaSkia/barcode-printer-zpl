@@ -1,0 +1,3 @@
+pycups
+win32printing
+pywin32
