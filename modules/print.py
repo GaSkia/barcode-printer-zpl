@@ -1,13 +1,12 @@
 import csv
 import tempfile
 
-# def windows():
-#     from win32printing import Printer
-#
-#     with open(filepath, newline='\r\n') as f:
-#         reader = csv.reader(f, 'r', delimiter=delimiter)
-#
+# TODO: add windows function
+
 labels = []
+
+height = (2.8 / 2.54) * 203
+length = (10 / 2.54) * 203
 
 
 def unix(filepath: str, delimiter: str):
@@ -33,10 +32,12 @@ def unix(filepath: str, delimiter: str):
                                          suffix=".txt", mode='w') as tmp:
             text = f"""
                     ^XA
-                    ^FO50,50^A0N,30,30^FD{label[0]}^FS
+                    ^LL{height}
+                    ^PW{length}
+                    ^FO50,50^A0N,30,30^FD^FS
                     ^FO50,100^BY2
                     ^BCN,100,Y,N,N
-                    ^FD^FS
+                    ^FD{label[0]}^FS
                     ^XZ
                    """
             print('testo: ', text)
