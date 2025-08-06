@@ -1,6 +1,6 @@
 from modules.print import unix
 
 delimiter = ';'
-filepath = '/home/gaskia/consorzio/magazzino/barcode_printer/test.csv'
+filepath = '/home/gaskia/projects/consorzio/magazzino/barcode-printer-zpl/test.csv'
 
 unix(filepath, delimiter)
