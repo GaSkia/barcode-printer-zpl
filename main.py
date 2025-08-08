@@ -1,7 +1,9 @@
 import platform
 import sys
+import subprocess
 from modules.print import unix
 
+subprocess.run(["source ./.venv/bin/activate"])
 
 print("Ciao, inserire il percorso completo del file. " +
       "Non deve contenere spazi: ")

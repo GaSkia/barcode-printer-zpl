@@ -34,9 +34,10 @@ def unix(filepath: str, delimiter: str):
                     ^XA
                     ^LL{height}
                     ^PW{length}
-                    ^FO50,100^BY2
+                    ^FO320,90^BY2
+                    ^A0N, 120, 120^FD{label[0]}^FS
                     ^BCN,100,Y,N,N
-                    ^FO20,20^A0N,90,50^FD{label[0]}^FS
+                    ^FO20,80^A0N,0,0^FD{label[0]}^FS
                     ^XZ
                    """
             print('testo: ', text)
