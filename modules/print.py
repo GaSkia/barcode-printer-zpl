@@ -29,6 +29,7 @@ def unix(filepath: str, delimiter: str):
     print('Seleziona stampante: ')
     choice = int(input())
     printer = printers[printer_names[choice]]["printer-info"]
+    height = ''
     for label in labels:
 
         if len(label) > 1 :
@@ -53,6 +54,7 @@ def unix(filepath: str, delimiter: str):
                     ^XA
                     ^LL{label_height}
                     ^PW{label_length}
+                    {height}
                     ^FO320,90^BY2
                     ^XZ
                    """
