@@ -10,11 +10,11 @@ label_length = (10 / 2.54) * 203
 small = 'piccolo'
 big = 'grande'
 
-def unix(filepath: str, delimiter: str):
+def unix(filepath: str): # , delimiter: str):
     import cups
 
     with open(filepath, newline='') as f:
-        reader = csv.reader(f, delimiter=delimiter)
+        reader = csv.reader(f)
         for row in reader:
             labels.append(row)
 
@@ -29,7 +29,6 @@ def unix(filepath: str, delimiter: str):
     print('Seleziona stampante: ')
     choice = int(input())
     printer = printers[printer_names[choice]]["printer-info"]
-    height = ''
     for label in labels:
         with tempfile.NamedTemporaryFile(delete=False,
                                          suffix=".txt", mode='w') as tmp:
