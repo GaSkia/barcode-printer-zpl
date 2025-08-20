@@ -31,31 +31,17 @@ def unix(filepath: str, delimiter: str):
     printer = printers[printer_names[choice]]["printer-info"]
     height = ''
     for label in labels:
-
-        if len(label) > 1 :
-            dim = str.lower(label[1]).strip()
-            if dim == big:
-                height = f"""
-                    ^A0N, 120, 120^FD{label[0]}^FS
-                    ^BCN,100,Y,N,N
-                    ^FO20,160^A0N,0,0^FD{label[0]}^FS
-                """
-            else:
-                height = f"""
-                    ^A0N, 50, 50^FD{label[0]}^FS
-                    ^BCN,100,Y,N,N
-                    ^FO20,160^A0N,0,0^FD{label[0]}^FS
-                """
-                
-
         with tempfile.NamedTemporaryFile(delete=False,
                                          suffix=".txt", mode='w') as tmp:
             text = f"""
                     ^XA
                     ^LL{label_height}
                     ^PW{label_length}
-                    {height}
+                    ^A0N, 120, 120^FD{label[0]}^FS
+                    ^BCN,100,Y,N,N
+                    ^FO20,120^A0N,0,0^FD{label[0]}^FS
                     ^FO320,90^BY2
+                    ^XZ
                     ^XZ
                    """
             print('testo: ', text)
